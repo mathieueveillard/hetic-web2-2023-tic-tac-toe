@@ -1,12 +1,34 @@
-// @ts-ignore see https://github.com/jest-community/jest-extended#setup
-import * as matchers from "jest-extended";
+import { Action, Game, computeNextGame } from ".";
 
-expect.extend(matchers);
+test("Start of the game", () => {
+  // GIVEN
+  const game: Game = {
+    grid: [
+      ["_", "_", "_"],
+      ["_", "_", "_"],
+      ["_", "_", "_"],
+    ],
+    nextPlayer: "X",
+  };
+  const action: Action = {
+    player: "X",
+    coordinates: {
+      x: 0,
+      y: 0,
+    },
+  };
 
-test("That's a test!", () => {
-  expect(1 + 1).toEqual(2);
-});
+  // WHEN
+  const actual = computeNextGame(game, action);
 
-test("jest-extended is included", () => {
-  expect([1, 0]).toIncludeSameMembers([0, 1]);
+  // THEN
+  const expected: Game = {
+    grid: [
+      ["X", "_", "_"],
+      ["_", "_", "_"],
+      ["_", "_", "_"],
+    ],
+    nextPlayer: "O",
+  };
+  expect(actual).toEqual(expected);
 });
