@@ -1,21 +1,18 @@
 import { Action, Game, computeNextGame } from ".";
 
-test("Start of the game", () => {
+test("Game is starting, X play", () => {
   // GIVEN
   const game: Game = {
     grid: [
-      ["_", "_", "_"],
-      ["_", "_", "_"],
-      ["_", "_", "_"],
+      [" ", " ", " "],
+      [" ", " ", " "],
+      [" ", " ", " "],
     ],
     nextPlayer: "X",
   };
   const action: Action = {
-    player: "X",
-    coordinates: {
-      x: 0,
-      y: 0,
-    },
+    x: 0,
+    y: 0,
   };
 
   // WHEN
@@ -24,11 +21,11 @@ test("Start of the game", () => {
   // THEN
   const expected: Game = {
     grid: [
-      ["X", "_", "_"],
-      ["_", "_", "_"],
-      ["_", "_", "_"],
+      ["X", " ", " "],
+      [" ", " ", " "],
+      [" ", " ", " "],
     ],
-    nextPlayer: "O",
+    nextPlayer: "X",
   };
   expect(actual).toEqual(expected);
 });

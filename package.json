@@ -4,6 +4,7 @@
   "description": "Starter project for kata (Node, TypeScript, Jest)",
   "main": "index.js",
   "scripts": {
+    "build": "tsc src/index.ts",
     "test": "jest --watch --coverage",
     "format": "prettier --write \"src/**/*.ts\""
   },
